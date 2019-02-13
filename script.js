@@ -7,7 +7,7 @@ document.querySelector('#current-1').textContent = 0;
 score =[0,0];
 var roundScore = 0;
 var activePlayer = 0;
-
+var lastDice ;
 
 
 
@@ -17,7 +17,10 @@ var dice= Math.floor(Math.random()*6)+1;
 var diceDOM = document.querySelector('.dice');
 diceDOM.style.display  = 'block';
 diceDOM.src = "dice-" +dice+ ".png"; 
-if (dice !== 1) {
+if (dice ==6 && lastDice ==6) {
+
+}
+else if (dice !== 1) {
 	roundScore = dice+roundScore;
 	document.querySelector('#current-' +activePlayer).textContent = roundScore;
 }
@@ -32,7 +35,7 @@ else {
 
 
 	}
-
+	lastDice = dice;
 });
 
 document.querySelector('.btn-hold').addEventListener('click', function() {
